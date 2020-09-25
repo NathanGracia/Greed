@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- TEMPLATE : https://demo.adminkit.io/ -->
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,11 +9,11 @@
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
-	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="{{ asset('img/icons/icon-48x48.png') }}" />
 
-	<title>AdminKit Demo - Web UI Kit &amp; Dashboard Template</title>
+	<title>@yield('pageName')</title>
 
-	<link href="css/app.css" rel="stylesheet">
+	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -21,7 +21,7 @@
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
+          <span class="align-middle">Greed</span>
         </a>
 
 				<ul class="sidebar-nav">
@@ -36,8 +36,8 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="/tradelogger">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Trade Logger</span>
+						<a class="sidebar-link" href="pages-profile.html">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
             </a>
 					</li>
 
@@ -126,15 +126,25 @@
 					</div>
 				</div>
 			</div>
-        </nav>
-        <div class="main">
-        @yield('body')
-        </div>
+		</nav>
+
+		<div class="main">
+			
+
+			<main class="content">
+				<div class="container-fluid p-0">
+					@yield('body')
+
+				</div>
+			</main>
+
 		
+		</div>
+	</div>
 
-	<script src="js/vendor.js"></script>
-	<script src="js/app.js"></script>
-
+	<script src="{{ asset('js/vendor.js') }}"></script>
+	<script src="{{ asset('js/app.js') }}"></script>
+	@yield('js')
 
 	
 	

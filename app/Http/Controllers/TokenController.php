@@ -9,6 +9,7 @@ class TokenController extends Controller
     public function show($slug){
         $slug = strtoupper($slug);
         $token= \DB::table('tokens')->where('slug',$slug)->first();
+       
         return view('token.show', ['token' => $token]);
  
     }
