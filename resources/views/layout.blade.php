@@ -14,6 +14,7 @@
 	<title>@yield('pageName')</title>
 
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -30,14 +31,14 @@
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="index.html">
+						<a class="sidebar-link" href="/">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+						<a class="sidebar-link" href="/tokens">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Tokens</span>
             </a>
 					</li>
 

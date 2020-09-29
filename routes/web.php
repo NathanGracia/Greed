@@ -19,4 +19,4 @@ Route::get('/', function () {
 Route::get('/tradelogger', 'App\Http\Controllers\TradeloggerController@show');
 Route::get('/trade/{slug}', 'App\Http\Controllers\TradeController@show');
 Route::get('/token/{slug}', 'App\Http\Controllers\TokenController@show');
-Route::get('/tokens', 'App\Http\Controllers\TokenController@showAll');
+Route::get('/tokens', 'App\Http\Controllers\TokenController@index');
