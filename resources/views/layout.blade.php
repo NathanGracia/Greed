@@ -18,6 +18,7 @@
 </head>
 
 <body>
+	
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
 			<div class="sidebar-content js-simplebar">
@@ -30,21 +31,21 @@
 						Pages
 					</li>
 
-					<li class="sidebar-item active">
+					<li class="sidebar-item class="{{ (request()->is('/')) ? 'active' : '' }}">
 						<a class="sidebar-link" href="/">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
+					<li class="sidebar-item" class="{{ (request()->is('/token*')) ? 'active' : '' }}">
 						<a class="sidebar-link" href="/tokens">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Tokens</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-settings.html">
-              <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Settings</span>
+					<li class="sidebar-item" class="{{ (request()->is('/geckoTokens')) ? 'active' : '' }}">
+						<a class="sidebar-link" href="/geckoTokens">
+              <i class="align-middle" data-feather="settings"></i> <span class="align-middle">Gecko Tokens</span>
             </a>
 					</li>
 

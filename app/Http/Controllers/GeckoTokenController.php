@@ -5,15 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Token;
 
-class TokenController extends Controller
+class GeckoTokenController extends Controller
 {
-    public function show($slug){
-        $slug = strtoupper($slug);
-        $token= \DB::table('tokens')->where('slug',$slug)->first();
-       
-        return view('token.show', ['token' => $token]);
- 
-    }
+   
     public function index(){
         //https://api.coingecko.com/api/v3/coins/list
          
@@ -35,27 +29,9 @@ class TokenController extends Controller
                 
                 }  */
 
-        $tokens= \DB::table('tokens')->get();
-        return view('token.index', ['tokens' => $tokens]);
+
+        $tokens= \DB::table('gecko_tokens')->get();
+        return view('geckoToken.index', ['tokens' => $tokens]);
     }
 
-    public function addTokenFormGecko($idGecko){
-        $geckoToken = \DB::table('gecko_tokens')->where('id', $idGecko)->first();  
-        $token = new Token();
-        $token->name = $geckoToken->name;
-        $token->slug = $geckoToken->slug;
-        $token->usdPrice = $geckoToken->usdPrice;
-        $token->save();
-      
-        return redirect('/tokens');
-      
-    }
-
-    public function delete($idGecko){
-        \DB::table('tokens')->where('id', $idGecko)->delete();
-
-      
-        return redirect('/tokens');
-      
-    }
 }
