@@ -51,6 +51,22 @@ class TokenController extends Controller
       
     }
 
+    public function addFavorite($slug){
+        $token = \DB::table('tokens')->where('slug', $slug)->update(['favorite' => true]);  
+       
+      
+        return redirect('/tokens');
+      
+    }
+
+    public function unFavorite($slug){
+        $token = \DB::table('tokens')->where('slug', $slug)->update(['favorite' => false]);  
+       
+      
+        return redirect('/tokens');
+      
+    }
+
     public function delete($idGecko){
         \DB::table('tokens')->where('id', $idGecko)->delete();
 

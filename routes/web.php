@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/','App\Http\Controllers\DashboardController@showDashboard');
 Route::get('/tradelogger', 'App\Http\Controllers\TradeloggerController@show');
 Route::get('/trade/{slug}', 'App\Http\Controllers\TradeController@show');
 Route::get('/token/{slug}', 'App\Http\Controllers\TokenController@show');
@@ -24,3 +22,5 @@ Route::get('/geckoTokens', 'App\Http\Controllers\GeckoTokenController@index');
 Route::get('/addToken/{id}', 'App\Http\Controllers\TokenController@addTokenFormGecko');
 
 Route::get('/deleteToken/{id}', 'App\Http\Controllers\TokenController@delete');
+Route::get('/token/favorite/{id}', 'App\Http\Controllers\TokenController@addFavorite');
+Route::get('/token/unfavorite/{id}', 'App\Http\Controllers\TokenController@unFavorite');

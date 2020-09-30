@@ -1,13 +1,13 @@
 @extends('layout')
 @section('pageName')
-    Token - {{ $token->name }}
+    Token ->{{ $token->name }}
 @endsection
 
 @section('body')
 
     <div class="row mb-2 mb-xl-3">
         <div class="col-auto d-none d-sm-block">
-            <h3>Token -> <strong>{{ $token->name }}</strong> </h3>
+            <a href="/tokens" style="color :#000"><h3>Token </a>-> <strong>{{ $token->name }}</strong> </h3>
         </div>
     </div>
     <div class="row">
@@ -21,7 +21,7 @@
                             new TradingView.widget({
                                 "width": 1200,
                                 "height": 650,
-                                "symbol": "BITSTAMP:{{ $token->slug }}USD",
+                                "symbol": "{{ $token->slug }}USD",
                                 "interval": "D",
                                 "timezone": "Etc/UTC",
                                 "theme": "dark",
@@ -51,7 +51,7 @@
     <div class="tradingview-widget-copyright"></div>
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
     {
-    "symbol": "BITSTAMP:{{ $token->slug }}USD",
+    "symbol": "{{ $token->slug }}USD",
     "width": "100%",
     "colorTheme": "light",
     "isTransparent": true,
@@ -79,7 +79,7 @@
                                 "width": 425,
                                 "isTransparent": true,
                                 "height": 450,
-                                "symbol": "BITSTAMP:{{ $token->slug }}USD",
+                                "symbol": "{{ $token->slug }}USD",
                                 "showIntervalTabs": true,
                                 "locale": "fr",
                                 "colorTheme": "light"
