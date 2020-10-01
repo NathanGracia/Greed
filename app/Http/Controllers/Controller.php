@@ -10,4 +10,10 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    public function customView(string $template, array $parameters = null){
+        $tokens= \DB::table('tokens')->get();
+        $parameters["myTokens"] = $tokens;
+
+        return view($template, $parameters);
+    }
 }

@@ -11,7 +11,9 @@ class DashboardController extends Controller
         
         $favTokens= \DB::table('tokens')->where('favorite', true)->get();
         
-        return view('dashboard', ['favTokens' => $favTokens]);
+    
+        
+        return Controller::customView('dashboard', ['favTokens' => $favTokens]);
 
     }
 }

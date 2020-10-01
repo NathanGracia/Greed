@@ -133,8 +133,9 @@
 		<div class="main">
 			
 
-			<main class="content">
-				<div class="container-fluid p-0">
+			<main class="content" style="margin-bottom: 4%">
+				<div class="container-fluid p-0"> 
+					
 					@yield('body')
 
 				</div>
@@ -145,43 +146,39 @@
 		</div>
 		
 	</div>
-	<footer class="footer" style="padding :0">
+	<footer class="footer fixed-bottom" style="padding :0">
 		<div class="" style="padding :0">
 			<!-- TradingView Widget BEGIN -->
-			<div class="tradingview-widget-container">
-				<div class="tradingview-widget-container__widget"></div>
-				
-				<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
-				{
-				"symbols": [
-				{
-					"proName": "FOREXCOM:SPXUSD",
-					"title": "S&P 500"
-				},
-				{
-					"proName": "FOREXCOM:NSXUSD",
-					"title": "Nasdaq 100"
-				},
-				{
-					"proName": "FX_IDC:EURUSD",
-					"title": "EUR/USD"
-				},
-				{
-					"proName": "BITSTAMP:BTCUSD",
-					"title": "BTC/USD"
-				},
-				{
-					"proName": "BITSTAMP:ETHUSD",
-					"title": "ETH/USD"
-				}
-				],
-				"colorTheme": "dark",
-				"isTransparent": false,
-				"locale": "fr"
-			}
-				</script>
-			</div>
-			<!-- TradingView Widget END -->
+<div class="tradingview-widget-container">
+	<div class="tradingview-widget-container__widget"></div>
+	
+	<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+	{
+	"symbols": [
+		@for($t = 0; $t < count($myTokens); $t++)
+					@if($t == count($myTokens)-1)
+						{
+						
+							"proName": "{{$myTokens[$t]->slug}}USD",
+							"title": "{{$myTokens[$t]->name}}"
+						}
+					@else
+					{
+						
+							"proName": "{{$myTokens[$t]->slug}}USD",
+							"title": "{{$myTokens[$t]->name}}"
+						},
+					@endif
+					@endfor
+	],
+	"colorTheme": "dark",
+	"isTransparent": false,
+	"displayMode": "adaptive",
+	"locale": "fr"
+  }
+	</script>
+  </div>
+  <!-- TradingView Widget END -->
 		</div>
 	</footer>
 	<script src="{{ asset('js/vendor.js') }}"></script>

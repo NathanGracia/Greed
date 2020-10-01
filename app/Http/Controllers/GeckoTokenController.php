@@ -31,7 +31,7 @@ class GeckoTokenController extends Controller
 
 
         $tokens= \DB::table('gecko_tokens')->get();
-        return view('geckoToken.index', ['tokens' => $tokens]);
+        return Controller::customView('geckoToken.index', ['tokens' => $tokens]);
     }
 
 }

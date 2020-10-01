@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 30 sep. 2020 à 21:10
+-- Généré le : jeu. 01 oct. 2020 à 14:28
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.2.19
 
@@ -6270,11 +6270,48 @@ CREATE TABLE `tokens` (
 
 INSERT INTO `tokens` (`id`, `created_at`, `updated_at`, `slug`, `name`, `usdPrice`, `favorite`) VALUES
 (4, '2020-09-29 10:59:59', '2020-09-29 10:59:59', 'btc', 'Bitcoin', 0.00, 1),
-(5, '2020-09-30 11:27:45', '2020-09-30 11:27:45', 'eth', 'Ethereum', 0.00, 0),
+(5, '2020-09-30 11:27:45', '2020-09-30 11:27:45', 'eth', 'Ethereum', 0.00, 1),
 (6, '2020-09-30 11:27:53', '2020-09-30 11:27:53', 'bat', 'Basic Attention Token', 0.00, 1),
 (7, '2020-09-30 11:29:44', '2020-09-30 11:29:44', 'appc', 'AppCoins', 0.00, 1),
 (8, '2020-09-30 11:30:21', '2020-09-30 11:30:21', 'doge', 'Dogecoin', 0.00, 1),
 (9, '2020-09-30 11:30:37', '2020-09-30 11:30:37', 'bch', 'Bitcoin Cash', 0.00, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `trades`
+--
+
+CREATE TABLE `trades` (
+  `date` int(11) DEFAULT NULL,
+  `type` varchar(255) NOT NULL,
+  `new_token` varchar(255) NOT NULL,
+  `old_token` varchar(255) NOT NULL,
+  `start_price` double NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `stop_price` double DEFAULT NULL,
+  `limit_price` double DEFAULT NULL,
+  `status` varchar(255) DEFAULT 'open',
+  `sold_price` double DEFAULT NULL,
+  `sold_date` timestamp NULL DEFAULT NULL,
+  `start_capital` double DEFAULT NULL,
+  `comment` text,
+  `id` int(11) NOT NULL,
+  `new_token_usd` double NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `capital_risk_usd` float DEFAULT NULL,
+  `delta_end` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `trades`
+--
+
+INSERT INTO `trades` (`date`, `type`, `new_token`, `old_token`, `start_price`, `quantity`, `stop_price`, `limit_price`, `status`, `sold_price`, `sold_date`, `start_capital`, `comment`, `id`, `new_token_usd`, `updated_at`, `created_at`, `capital_risk_usd`, `delta_end`) VALUES
+(1586781607, 'Long', 'BTC', 'USDT', 8000, 2, NULL, NULL, 'open', NULL, NULL, NULL, 'aaa', 2, 8000, '2020-10-01 10:40:07', '2020-10-01 10:40:07', 0, 0),
+(1586786269, 'Long', 'BTC', 'USDT', 8000, 2, 7000, NULL, 'open', NULL, NULL, 10000, NULL, 3, 8000, '2020-10-01 11:57:49', '2020-10-01 11:57:49', 16000, NULL),
+(1586786386, 'Long', 'BTC', 'USDT', 8000, 2, 7000, NULL, 'open', NULL, NULL, 100000, NULL, 4, 8000, '2020-10-01 11:59:46', '2020-10-01 11:59:46', 2000, NULL);
 
 -- --------------------------------------------------------
 
@@ -6329,6 +6366,12 @@ ALTER TABLE `tokens`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `trades`
+--
+ALTER TABLE `trades`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
@@ -6362,6 +6405,12 @@ ALTER TABLE `migrations`
 --
 ALTER TABLE `tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT pour la table `trades`
+--
+ALTER TABLE `trades`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `users`

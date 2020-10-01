@@ -11,7 +11,7 @@ class TokenController extends Controller
         $slug = strtoupper($slug);
         $token= \DB::table('tokens')->where('slug',$slug)->first();
        
-        return view('token.show', ['token' => $token]);
+        return Controller::customView('token.show', ['token' => $token]);
  
     }
     public function index(){
@@ -36,7 +36,7 @@ class TokenController extends Controller
                 }  */
 
         $tokens= \DB::table('tokens')->get();
-        return view('token.index', ['tokens' => $tokens]);
+        return Controller::customView('token.index', ['tokens' => $tokens]);
     }
 
     public function addTokenFormGecko($idGecko){
