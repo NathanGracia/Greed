@@ -10,6 +10,7 @@
             <th style="width:10%;">Taille de la position (USD)</th>
             <th style="width:10%;">Quantité</th>
             <th style="width:10%;">Risque Capital de la position</th>
+            <th style="width:10%;">Editer</th>
 
 
         </tr>
@@ -18,13 +19,14 @@
         @foreach ($trades as $trade)
       
             <tr>
-                <td>{{ date('d/m/Y', $trade->date) }} </td>
+                <td><a href="trade/{{ $trade->id }}">{{ date('d/m/Y', $trade->date) }} </a></td>
                 <td>{{ $trade->new_token }} - {{ $trade->old_token }}</td>
                 <td>{{ $trade->type }}</td>
                 <td class="d-none d-md-table-cell">{{ $trade->start_price }} {{ $trade->old_token }}</td>
                 <td>{{ $trade->new_token_usd }} $</td>
                 <td>{{ $trade->quantity }}</td>
                 <td>{{ $trade->capital_risk_usd }} $</td>
+                <td> <a href="trade/{{ $trade->id }}">Editer</a> </td>
                 
 
               

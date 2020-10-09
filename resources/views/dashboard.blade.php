@@ -1,4 +1,7 @@
 @extends('layout')
+@section('pageName')
+Dashboard
+@endSection
 @section('body')
     <div class="main">
       

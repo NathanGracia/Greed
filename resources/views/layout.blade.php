@@ -9,7 +9,7 @@
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
 
-	<link rel="shortcut icon" href="{{ asset('img/icons/icon-48x48.png') }}" />
+	<link rel="shortcut icon" href="{{ asset('img/iconBlue.png') }}" />
 
 	<title>@yield('pageName')</title>
 
@@ -21,9 +21,10 @@
 	
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar">
-			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">Greed</span>
+			<div class="sidebar-content js-simplebar" >
+				<a class="sidebar-brand" href="index.html" style="text-align : center; margin-left: -35px" >
+					<img src="{{ asset('img/iconBlue.png') }}" style="max-width: 35px; margin-right: 10px;" alt="iconGreen">
+          <span class="align-middle" >Greed</span>
         </a>
 
 				<ul class="sidebar-nav">
@@ -31,7 +32,7 @@
 						Pages
 					</li>
 
-					<li class="sidebar-item class="{{ (request()->is('/')) ? 'active' : '' }}">
+					<li class="sidebar-item" class="{{ (request()->is('/')) ? 'active' : '' }}">
 						<a class="sidebar-link" href="/">
               <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
             </a>
@@ -49,15 +50,15 @@
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-invoice.html">
-              <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Invoice</span>
+					<li class="sidebar-item" class="{{ (request()->is('/trades')) ? 'active' : '' }}">
+						<a class="sidebar-link" href="/trades">
+              <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Trades</span>
             </a>
 					</li>
 
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
+					<li class="sidebar-item" class="{{ (request()->is('/trade/new')) ? 'active' : '' }}">
+						<a class="sidebar-link" href="/trade/new">
+              <i class="align-middle" data-feather="credit-card"></i> <span class="align-middle">Nouveau trade</span>
             </a>
 					</li>
 
@@ -181,7 +182,6 @@
   <!-- TradingView Widget END -->
 		</div>
 	</footer>
-	<script src="{{ asset('js/vendor.js') }}"></script>
 	<script src="{{ asset('js/app.js') }}"></script>
 	@yield('js')
 

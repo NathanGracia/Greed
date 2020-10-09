@@ -19,7 +19,10 @@ Route::get('/','App\Http\Controllers\DashboardController@showDashboard');
 Route::get('/tradelogger', 'App\Http\Controllers\TradeloggerController@show');
 Route::get('/trade/new', 'App\Http\Controllers\TradeController@new');
 Route::get('/trade/create', 'App\Http\Controllers\TradeController@create');
+Route::get('/trade/edit/{slug}', 'App\Http\Controllers\TradeController@edit');
+Route::get('/trade/statusChange/{slug}', 'App\Http\Controllers\TradeController@statusChange');
 Route::get('/trade/{slug}', 'App\Http\Controllers\TradeController@show');
+Route::get('/trade/update/{slug}', 'App\Http\Controllers\TradeController@update');
 Route::get('/trades', 'App\Http\Controllers\TradeController@index');
 
 Route::get('/token/{slug}', 'App\Http\Controllers\TokenController@show');

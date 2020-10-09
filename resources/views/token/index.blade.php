@@ -51,3 +51,6 @@ Liste des tokens
 
 
 @endsection
+@section('js')
+document.getElementById
+@endsection
